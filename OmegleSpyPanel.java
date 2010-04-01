@@ -340,7 +340,7 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 			{
 				String n = names[k], on = names[names.length - k - 1];
 				OmegleSpy spy = spies[k] = new OmegleSpy(n);
-				//ls[k].setText("To "+ n +"; From " + on);
+				ls[k].setText("To "+ n +"; From " + on);
 				btns[k].setText("Disconnect " + n);
 				spy.addOmegleSpyListener(this);
 			}
@@ -595,6 +595,9 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 			tf.setActionCommand("" + k);
 			tf.addActionListener(this);
 			
+			JLabel toLabel = ls[k] = new JLabel(" ");
+			toLabel.setFont(FONT);
+			
 			JLabel label = lbls[k] = new JLabel(" ");
 			label.setFont(FONT);
 			
@@ -603,8 +606,9 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 			b.setActionCommand("" + k);
 			b.addActionListener(this);
 			
-			JPanel p = panels[k] = new JPanel(new GridLayout(3, 1));
+			JPanel p = panels[k] = new JPanel(new GridLayout(4, 1));
 			p.add(tf);
+			p.add(toLabel);
 			p.add(label);
 			p.add(b);
 			
