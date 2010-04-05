@@ -97,7 +97,7 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 	}
 	private void printLabelledMsg (String className, String from, String msg)
 	{
-		from = escapeHTML(from);
+		//from = escapeHTML(from);
 		msg = escapeHTML(msg);
 		
 		StringBuffer sb = new StringBuffer();
@@ -131,7 +131,8 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 	private void printBlockedMsg (OmegleSpy from, String msg)
 	{
 		String className = CLASS_NAMES[indexOf(from)] + "-blocked";
-		printLabelledMsg(className, "<<"+from.getName()+">>", msg);
+		String fromLbl = "<s>&lt;&lt;"+from.getName()+"&gt;&gt;</s>";
+		printLabelledMsg(className, fromLbl, msg);
 	}
 	private void printSecretMsg (OmegleSpy to, String msg)
 	{
@@ -597,6 +598,9 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 			
 			JLabel toLabel = ls[k] = new JLabel(" ");
 			toLabel.setFont(FONT);
+			toLabel.setForeground(Color.GRAY);
+			JPanel toPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+			toPanel.add(toLabel);
 			
 			JLabel label = lbls[k] = new JLabel(" ");
 			label.setFont(FONT);
@@ -608,7 +612,7 @@ public class OmegleSpyPanel extends JPanel implements Runnable,
 			
 			JPanel p = panels[k] = new JPanel(new GridLayout(4, 1));
 			p.add(tf);
-			p.add(toLabel);
+			p.add(toPanel);
 			p.add(label);
 			p.add(b);
 			
