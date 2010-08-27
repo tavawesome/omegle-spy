@@ -12,7 +12,7 @@ public class Omegle implements Runnable
 	public static final String EV_CONNECTING, EV_WAITING, EV_CONNECTED,
 								EV_TYPING, EV_STOPPED_TYPING, EV_MSG,
 								EV_DISCONNECT;
-	public static final String OMEGLE_ROOT = "http://omegle.com/";
+	public static final String OMEGLE_ROOT = "http://bajor.omegle.com/";
 	
 	
 	static
