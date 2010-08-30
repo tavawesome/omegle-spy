@@ -12,7 +12,7 @@ public class Omegle implements Runnable
 	public static final String EV_CONNECTING, EV_WAITING, EV_CONNECTED,
 								EV_TYPING, EV_STOPPED_TYPING, EV_MSG,
 								EV_DISCONNECT;
-	public static final String OMEGLE_ROOT = "http://bajor.omegle.com/";
+	public static final String OMEGLE_ROOT = "http://omegle.com/";
 	
 	
 	static
@@ -25,7 +25,17 @@ public class Omegle implements Runnable
 		EV_STOPPED_TYPING = "stoppedTyping";
 		EV_DISCONNECT = "strangerDisconnected";
 		
-		setOmegleRoot(OMEGLE_ROOT);
+		try
+		{
+			InputStream is=Omegle.class.getResourceAsStream("server_name.txt");
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			String serverName = br.readLine();
+			setOmegleRoot("http://" + serverName + "/");
+		}
+		catch (Exception ex)
+		{
+			setOmegleRoot(OMEGLE_ROOT);
+		}
 	}
 	
 	static URL start_url, events_url, send_url, disc_url, type_url,
