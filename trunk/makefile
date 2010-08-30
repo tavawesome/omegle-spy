@@ -1,6 +1,6 @@
 SRCS = Common.class DesperationWindow.class Omegle.class OmegleSpy.class OmegleSpyPanel.class OmegleSpyWindow.class OmegleSpyApplet.class
 
-FILES = base.html names.txt makefile
+FILES = base.html names.txt makefile server_name.txt
 
 
 all: OmegleSpyAll jar
