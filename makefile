@@ -28,4 +28,4 @@ clean:
 	rm -f *.class OmegleSpy.jar
 
 jar:
-	jar cmf MANIFEST.MF OmegleSpy.jar *.class $(FILES)
+	jar cmf manifest.mf OmegleSpy.jar *.class $(FILES)
