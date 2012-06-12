@@ -1,6 +1,6 @@
 SRCS = Common.class DesperationWindow.class Omegle.class OmegleSpy.class OmegleSpyPanel.class OmegleSpyWindow.class OmegleSpyApplet.class
 
-FILES = base.html names.txt makefile server_name.txt
+FILES = base.html names.txt server_name.txt
 
 
 all: OmegleSpyAll jar
@@ -25,7 +25,7 @@ DesperationWindow.class: DesperationWindow.java
 	javac DesperationWindow.java
 
 clean:
-	rm -f *.class
+	rm -f *.class OmegleSpy.jar
 
 jar:
-	jar cmf META-INF/MANIFEST.MF OmegleSpy.jar *.java *.class $(FILES)
+	jar cmf MANIFEST.MF OmegleSpy.jar *.class $(FILES)
