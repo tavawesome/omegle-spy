@@ -15,16 +15,16 @@ if (exists($ARGV[0]))
     }
     elsif ($c =~ /$opt_regex/)
     {
-        shift @ARGV;
         $a = $1;
+        shift @ARGV;
         
         if (exists($ARGV[0]))
         {
             $c = $ARGV[0];
             if ($c =~ /$opt_regex/)
             {
-                shift @ARGV;
                 $b = $1;
+                shift @ARGV;
             }
         }
     }
